@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music For Free!</title>
+  <title>Kydron.com</title>
   <style>
     body {
       margin: 0;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       background: linear-gradient(to bottom, #e5e5e5 0%, #cfcfcf 100%);
-	  background-image: url("linen.png");
-	  background-size: cover;
+      background-image: url("linen.png");
+      background-size: cover;
+    }
+
+    .title-bar {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-110%);
+      font-size: 56px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 0px 5px 3px black;
     }
 
     .container {
       max-width: 700px;
-      margin: 40px auto;
-      padding: 10x;
+      margin: 120px auto 40px;
+      padding: 10px;
+	  padding-left: 30px;
+	  padding-right: 30px;
       background: #fefefe;
+      background-image: linear-gradient(to bottom, #fefefe, #b5b5b5);
       border-radius: 4px;
       box-shadow: 1px 1px 100px 16px black;
       border: 1px solid #ccc;
-	  margin-top: 125px;
-    }
-
-    .banner {
-      width: 100%;
-      height: auto;
-      border-radius: 4px 4px 0 0;
-      box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
     }
 
     .section {
@@ -49,20 +55,25 @@
     }
 
     .section h2 {
-      font-size: 24px;
+      font-size: 16px;
       color: #333;
       text-shadow: 0 1px 0 #fff;
+	  text-align: left;
+	  transform: translateX(150px);
     }
 
     .section p {
-      font-size: 16px;
+      font-size: 12px;
       color: #666;
+	  text-align: left;
+	  transform: translateX(150px);
     }
 
     .button {
       display: inline-block;
       padding: 9px 16px;
-      margin-top: 20px;
+      margin-top: 0px;
+	  transform: translatey(0px);
       background: linear-gradient(to bottom, #ededed, #ccc);
       border-radius: 4px;
       border: 1px solid #aaa;
@@ -72,31 +83,48 @@
       text-decoration: none;
       box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.2);
     }
-
+	
+	.AArt {
+	align-items: left;
+	width: 128px;
+	height: 128px;
+	transform: translateY(-50%);
+	box-shadow: 0 3px 8px black;
+	}
+	
     .button:hover {
       background: linear-gradient(to bottom, #fff, #ddd);
     }
   </style>
 </head>
 <body>
+  <div class="title-bar">Kydron.com</div>
+
   <div class="container">
-    <img class="banner" src="vlcsnap-2024-12-29-18h01m27s498.png" alt="Music Banner" />
-
     <div class="section">
-      <h2>Classic</h2>
-      <p>Classic.</p>
+      <h2>Fight Songs: The Music Of Team Fortress 2</h2>
+      <p>Valve Studio Orchestra (2017)</p>
+	  <div class="AArt">
+	  <img src="ART1.jpg" alt="Fight Songs: The Music Of Team Fortress 2">
+	  </div>
       <a href="#" class="button">Download Track</a>
     </div>
 
     <div class="section">
-      <h2>Classic</h2>
-      <p>Classic.</p>
+      <h2>Exile on Main St.</h2>
+      <p>The Rolling Stones (1972)</p>
+	  <div class="AArt">
+	  <img src="ART2.jpg" alt="Exile on Main St.">
+	  </div>
       <a href="#" class="button">Download Track</a>
     </div>
 
     <div class="section">
-      <h2>Classic</h2>
-      <p>Classic.</p>
+      <h2>Cold and Bouncy</h2>
+      <p>The High Llamas (1998)</p>
+	  <div class="AArt">
+	  <img src="ART3.jpg" alt="Exile on Main St.">
+	  </div>
       <a href="#" class="button">Download Track</a>
     </div>
   </div>
