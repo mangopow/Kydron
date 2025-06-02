@@ -42,23 +42,20 @@
     .search-box {
       box-shadow: 0px 0px 1px 1px black inset;
       background-color: #fefefe;
-      max-width: 100px;
-      float: none;
-      position: absolute;
-      left: 120px;
+      max-width: 200px;
+      position: relative;
       border-radius: 6px;
       z-index: 3;
       font-family: "HelveticaN";
       font-weight: 100;
       padding: 2px;
-      border-left: none
+      margin-left: 10px;
     }
 
     .title-bar {
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-110%);
+      position: relative;
+      text-align: center;
+      transform: translateY(100px);
       font-size: 56px;
       font-weight: bold;
       color: #ffffff;
@@ -98,7 +95,7 @@
 	    transform: translateX(15px);
     }
 
-        .section p {
+     .section p {
       font-size: 12px;
       color: #898989;
 	    text-align: left;
@@ -119,6 +116,17 @@
     .hide {
       display: none;
     }
+    
+    #down{
+      float: right;
+      max-width: 32px;
+      max-height: 32px;
+      transform: translateX(-10px) translateY(-10px);
+      padding: 1px;
+      border: 1px solid #8b7e7e;
+      box-shadow: 0px 1px 8px -2px black;
+      opacity: 60%
+    }
 
   </style>
 </head>
@@ -135,39 +143,36 @@
       <img src="ART1.jpg" alt="Fight Songs: The Music Of Team Fortress 2">
         <h2>Fight Songs: The Music Of Team Fortress 2</h2>
         <p>Valve Studio Orchestra (2017)</p>
+        <img id="down" src="Download.jpg">
     </div>
 
     <div class="section">
       <img src="ART2.jpg" alt="Exile on Main St.">
         <h2>Exile on Main St.</h2>
         <p>The Rolling Stones (1972)</p>
+        <img id="down" src="Download.jpg">
     </div>
 
     <div class="section">
       <img src="ART4.jpg" alt="Gorillaz">
        <h2>Gorillaz</h2>
-        <p>Gorillaz (2001)</p>   
+        <p>Gorillaz (2001)</p>
+        <img id="down" src="Download.jpg">
     </div>
 
     <div class="section">
       <img src="ART3.jpg" alt="Cold & Bouncy">
        <h2>Cold and Bouncy</h2>
-        <p>The High Llamas (1998)</p>   
+        <p>The High Llamas (1998)</p>
+        <img id="down" src="Download.jpg">   
     </div>
     
     <div class="section">
       <img src="ART5.jpg" alt="The Queen Is Dead">
        <h2>The Queen Is Dead</h2>
-        <p>The Smiths (1986)</p>   
+        <p>The Smiths (1986)</p>
+        <img id="down" src="Download.jpg">   
     </div>
-
-    <template data-song>
-      <div class="section">
-      <img src=".jpg" alt="">
-       <h2></h2>
-        <p></p>   
-    </div>
-    </template>
 
   </div>
 </body>
