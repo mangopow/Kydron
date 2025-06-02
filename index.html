@@ -28,28 +28,31 @@
     
     .search-bar {
       background: #fefefe;
-      background-image: linear-gradient(to bottom, #fefefe, #b5b5b5);
+      background-image: linear-gradient(to bottom, #DADADC 0%, #CFCFD0 33%, #C7C7C9 67%, #C2C2C3 100%);
       border-radius: 4px;
-      box-shadow: 1px 1px 100px 4px black;
+      box-shadow: 1px 1px 24px 2px black;
       border: 1px solid #ccc;
-      height: 23px;
-      max-width: 750px;
+      height: 32px;
+      max-width: 760px;
       margin: 120px auto 0px;
       z-index: 2;
       position: relative;
     }
 
     .search-box {
-      box-shadow: 0px 0px 1px 1px black inset;
+      box-shadow: 1px 3px 3px 1px rgb(117, 117, 117) inset;
       background-color: #fefefe;
       max-width: 200px;
       position: relative;
-      border-radius: 6px;
+      border-radius: 12px;
       z-index: 3;
       font-family: "HelveticaN";
       font-weight: 100;
-      padding: 2px;
+      padding: 3px;
       margin-left: 10px;
+      padding-left: 8px;
+      color: #747576;
+      margin-top: 3px;
     }
 
     .title-bar {
@@ -70,8 +73,7 @@
 	    padding-left: 30px;
 	    padding-right: 30px;
       padding-bottom: 15px;
-      background: #fefefe;
-      background-image: linear-gradient(to bottom, #f0f0f0, #afafaf);
+      background: #E9EAEC;
       border-radius: 4px;
       box-shadow: 1px 10px 100px 16px rgba(0, 0, 0, 0.555);
       border: 1px solid #ccc;
@@ -85,6 +87,7 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.103);
       font-family: "HelveticaN";
       font-weight: bold;
+      box-shadow: 0px 1px #ffffff;
     }
 
     .section h2 {
@@ -123,9 +126,26 @@
       max-height: 32px;
       transform: translateX(-10px) translateY(-10px);
       padding: 1px;
-      border: 1px solid #8b7e7e;
+      border: 1px solid #888888;
       box-shadow: 0px 1px 8px -2px black;
       opacity: 60%
+    }
+
+    #down:hover{
+      float: right;
+      max-width: 32px;
+      max-height: 32px;
+      transform: translateX(-10px) translateY(-10px);
+      padding: 1px;
+      border: 1px solid #a0a0a0;
+      box-shadow: 0px 1px 8px -2px rgb(56, 56, 56);
+      opacity: 45%
+    }
+
+  @media screen and (max-width: 600px) {
+    div.title-bar {
+      font-size: 30px;
+    }
     }
 
   </style>
@@ -134,7 +154,7 @@
   <div class="title-bar">Kydron.com</div>
 
   <div class="search-bar">
-    <input type="search" id="search" class="search-box" placeholder="Search..">
+    <input type="search" id="search" class="search-box" placeholder="Search">
   </div>
 
   <div class="container">
