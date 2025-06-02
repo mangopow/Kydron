@@ -1,0 +1,47 @@
+ID=1
+Name=Fight Songs: The Music Of Team Fortress 2
+Artist=Valve Studio Orchestra (2017)
+
+ID=2
+Name=Exile on Main St.
+Artist=The Rolling Stones (1972)
+
+ID=3
+Name=Cold and Bouncy
+Artist=The High Llamas (1998)
+
+ID=4
+Name=Gorillaz
+Artist=Gorillaz (2001)
+
+ID=5
+Name=The Queen Is Dead
+Artist=The Smiths (1986)
+
+ID=6
+Name=Power, Corruption & Lies
+Artist=New Order (1993)
+
+ID=7
+Name=Selected Ambient Works 85-92
+Artist=Aphex Twin (1992)
+
+ID=8
+Name=Protection
+Artist=Massive Attack (1994)
+
+ID=9
+Name=Hot Rocks 1964-1971
+Artist=The Rolling Stones (1971)
+
+ID=10
+Name=Interplay
+Artist=Ride (2024)
+
+ID=12
+Name=Selected Ambient Works Volume II
+Artist=Aphex Twin (1994)
+
+ID=14
+Name=Mirror's Edge (Original Videogame Score) 
+Artist=Solar Fields (2009), EA Games Soundtrack

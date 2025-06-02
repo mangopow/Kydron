@@ -6,6 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="script.js" defer></script>
+  <script src="list.js" defer></script>
   <title>Kydron.com</title>
   <style>
   @font-face {
@@ -34,25 +35,40 @@
       border: 1px solid #ccc;
       height: 32px;
       max-width: 760px;
-      margin: 120px auto 0px;
+      margin: 120px auto auto;
       z-index: 2;
       position: relative;
     }
 
-    .search-box {
+    .searchpre{
+      height: 16px;
+      margin-top: auto;
+    }
+
+    .searchwrap{
       box-shadow: 1px 3px 3px 1px rgb(117, 117, 117) inset;
       background-color: #fefefe;
       max-width: 200px;
       position: relative;
       border-radius: 12px;
       z-index: 3;
-      font-family: "HelveticaN";
-      font-weight: 100;
       padding: 3px;
       margin-left: 10px;
       padding-left: 8px;
       color: #747576;
-      margin-top: 3px;
+      margin-top: 4px;
+      border:0 none;
+      display: flex;
+    }
+
+    .search-box {
+      border: none;
+      outline: none;
+      background: #ffffff00;
+      font-family: "HelveticaN";
+      font-weight: 100;
+      margin-top: 1px;
+      margin-left: 2px;
     }
 
     .title-bar {
@@ -139,14 +155,43 @@
       padding: 1px;
       border: 1px solid #a0a0a0;
       box-shadow: 0px 1px 8px -2px rgb(56, 56, 56);
-      opacity: 45%
+      opacity: 45%;
+      cursor: not-allowed;
+    }
+
+    .sortbutton{
+      background: linear-gradient(to bottom, #e4e5e7,#cbccce);
+      border-style: solid;
+      border-width: 1px;
+      font-weight: bold;
+      font-family: helveticaN;
+      color: #333333;
+      text-shadow: 0px 1px 0px #ffffff;
+      padding: 5px;
+      border-radius: 4px;
+      border-color: #A3A3A5;
+      box-shadow: 0px 1px 0px 0px inset #ffffff;
+      float: right;
+      transform: translateY(-27px);
+      margin-right: 10px;
+    }
+
+    .sortbutton:active{
+      box-shadow: 1px 1px 4px 0px #474747 inset;
+      background: linear-gradient(to bottom, #cccccc, #cecece);
     }
 
   @media screen and (max-width: 600px) {
     div.title-bar {
       font-size: 30px;
     }
+  }
+
+    @media screen and (max-width: 600px) {
+    div.searchwrap {
+      max-width: 70px;
     }
+  }
 
   </style>
 </head>
@@ -154,46 +199,13 @@
   <div class="title-bar">Kydron.com</div>
 
   <div class="search-bar">
-    <input type="search" id="search" class="search-box" placeholder="Search">
+    <div class="searchwrap">
+        <img src="magnifiying-glass.png" class="searchpre">   
+        <input type="search" id="search" class="search-box" placeholder="Search">
+    </div>
+      <button class="sortbutton" onclick="sortByName()">Sort Alphabetically</button>
+      <button class="sortbutton" onclick="sortByYear()">Sort by Date</button>
   </div>
-
-  <div class="container">
-
-    <div class="section">
-      <img src="ART1.jpg" alt="Fight Songs: The Music Of Team Fortress 2">
-        <h2>Fight Songs: The Music Of Team Fortress 2</h2>
-        <p>Valve Studio Orchestra (2017)</p>
-        <img id="down" src="Download.jpg">
-    </div>
-
-    <div class="section">
-      <img src="ART2.jpg" alt="Exile on Main St.">
-        <h2>Exile on Main St.</h2>
-        <p>The Rolling Stones (1972)</p>
-        <img id="down" src="Download.jpg">
-    </div>
-
-    <div class="section">
-      <img src="ART4.jpg" alt="Gorillaz">
-       <h2>Gorillaz</h2>
-        <p>Gorillaz (2001)</p>
-        <img id="down" src="Download.jpg">
-    </div>
-
-    <div class="section">
-      <img src="ART3.jpg" alt="Cold & Bouncy">
-       <h2>Cold and Bouncy</h2>
-        <p>The High Llamas (1998)</p>
-        <img id="down" src="Download.jpg">   
-    </div>
-    
-    <div class="section">
-      <img src="ART5.jpg" alt="The Queen Is Dead">
-       <h2>The Queen Is Dead</h2>
-        <p>The Smiths (1986)</p>
-        <img id="down" src="Download.jpg">   
-    </div>
-
-  </div>
+  <div class="container" id="content"></div>
 </body>
 </html>
