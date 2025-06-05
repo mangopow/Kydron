@@ -1,8 +1,8 @@
-Archive: Kydron.com
-Version: 1.0
-Component: main
-Origin: emisis
-Label: Kydron
-Description: Kydron Packages
-Codename: iOs
+Origin: Kydron
+Label: Kydron.com packages
+Suite: stable
+Version: 1.6
+Codename: cydia-ios
 Architectures: iphoneos-arm
+Components: main
+Description:  Kydron Packages
