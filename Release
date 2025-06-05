@@ -3,3 +3,6 @@ Version: 1.0
 Component: main
 Origin: emisis
 Label: Kydron
+Description: Kydron Packages
+Codename: iOs
+Architectures: iphoneos-arm
