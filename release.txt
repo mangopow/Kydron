@@ -1,0 +1,5 @@
+Archive: Kydron.com
+Version: 1.0
+Component: main
+Origin: emisis
+Label: Kydron

@@ -1,0 +1,9 @@
+Package: Classic iOS
+Version: 1.2
+Architecture: iphoneos-arm
+Maintainer: Kydron
+Depends: None
+Description: Classic iOS Icons.
+MD5sum: 3E2A353D22E8004C50B3F3932F7A1B015D5F904127922B6DC2E41CA8CA2CBEF7
+Size: 8220
+Filename: packages/tweak1/tweak1.deb
