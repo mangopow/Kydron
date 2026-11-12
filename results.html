@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Gamma Lab Results</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:wght@500;700&display=swap">
+<style>
+:root{--g2:#4cc61d;--g3:#9dff3a;--p:#6b2fa0;--ink:#0c1a0c;--paper:#f1ffe0;color-scheme:dark;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;font-family:"Barlow",Arial,sans-serif;font-weight:500;color:var(--paper);min-height:100vh;background:linear-gradient(160deg,#103d10,#0a1f0a 60%,#14081f);padding:20px 16px 48px}
+main{max-width:900px;margin:0 auto}
+h1{font-family:"Bangers","Impact",sans-serif;font-weight:400;font-size:clamp(2.4rem,9vw,4rem);margin:0 0 16px;color:var(--g3);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--p)}
+.box{background:#2a2f2a;border:4px solid var(--ink);border-radius:6px;padding:20px;box-shadow:8px 8px 0 var(--p)}
+input{display:block;width:100%;max-width:360px;font:inherit;font-size:1.05rem;color:var(--paper);background:#151a15;border:3px solid #4b554b;border-radius:4px;padding:10px;margin:0 0 12px}
+button{font-family:"Bangers","Impact",sans-serif;font-size:1.4rem;letter-spacing:.06em;color:var(--ink);background:var(--g2);border:3px solid var(--ink);border-radius:6px;padding:6px 18px;cursor:pointer;box-shadow:4px 4px 0 var(--p)}
+input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--g3);outline-offset:2px}
+.err{color:#ff9bd0;font-weight:700;margin-top:10px;min-height:1.2em}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:2px solid #444c44;vertical-align:top}
+th{color:var(--g3)}
+details{margin:0}summary{cursor:pointer;color:#b98cf2;font-weight:700}
+dl{margin:8px 0 0}dt{font-weight:700;color:var(--g3);margin-top:6px}dd{margin:0}
+</style>
+</head>
+<body>
+<main>
+<h1>Gamma Lab Results</h1>
+<div class="box" id="login">
+<label for="em">Email</label><input id="em" type="email" autocomplete="username">
+<label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password">
+<button type="button" id="go">SIGN IN</button><div class="err" id="err"></div>
+</div>
+<div class="box" id="res" hidden>
+<div class="bar"><strong id="count"></strong><button type="button" id="out">SIGN OUT</button></div>
+<div class="wrap"><table><thead><tr><th>When</th><th>Name</th><th>Email</th><th>Score</th><th>Answers</th></tr></thead><tbody id="rows"></tbody></table></div>
+</div>
+</main>
+<script>
+(function(){
+var SB_URL="YOUR_SUPABASE_URL",SB_KEY="YOUR_SUPABASE_ANON_KEY",tok=null;
+var $=function(i){return document.getElementById(i)};
+function td(t){var c=document.createElement("td");c.textContent=t;return c}
+function login(){
+$("err").textContent="";
+fetch(SB_URL+"/auth/v1/token?grant_type=password",{method:"POST",headers:{"Content-Type":"application/json",apikey:SB_KEY},body:JSON.stringify({email:$("em").value.trim(),password:$("pw").value})})
+.then(function(r){return r.json()}).then(function(d){
+if(!d.access_token){$("err").textContent="Sign in failed. Check your email and password.";return}
+tok=d.access_token;$("pw").value="";load()})
+.catch(function(){$("err").textContent="Could not reach the database."})}
+function load(){
+fetch(SB_URL+"/rest/v1/responses?select=*&order=created_at.desc",{headers:{apikey:SB_KEY,Authorization:"Bearer "+tok}})
+.then(function(r){return r.json()}).then(function(rows){
+if(!Array.isArray(rows)){$("err").textContent="Could not load results.";return}
+$("login").hidden=true;$("res").hidden=false;
+$("count").textContent=rows.length+" response"+(rows.length==1?"":"s");
+var tb=$("rows");tb.innerHTML="";
+rows.forEach(function(r){
+var tr=document.createElement("tr");
+tr.appendChild(td(new Date(r.created_at).toLocaleString()));
+tr.appendChild(td(r.name||""));tr.appendChild(td(r.email||""));
+tr.appendChild(td(r.score+" / "+r.total));
+var c=document.createElement("td"),d=document.createElement("details"),s=document.createElement("summary");
+s.textContent="View";d.appendChild(s);
+var dl=document.createElement("dl");
+Object.keys(r.answers||{}).forEach(function(k){var a=document.createElement("dt");a.textContent=k;var b=document.createElement("dd");b.textContent=r.answers[k];dl.appendChild(a);dl.appendChild(b)});
+d.appendChild(dl);c.appendChild(d);tr.appendChild(c);tb.appendChild(tr)})})}
+$("go").onclick=login;
+$("pw").addEventListener("keydown",function(e){if(e.key=="Enter")login()});
+$("out").onclick=function(){tok=null;$("res").hidden=true;$("login").hidden=false}
+})();
+</script>
+</body>
+</html>

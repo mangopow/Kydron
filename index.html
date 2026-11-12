@@ -1,211 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="script.js" defer></script>
-  <script src="list.js" defer></script>
-  <title>Kydron.com</title>
-  <style>
-  @font-face {
-    font-family: HelveticaN;
-    src: url(/fonts/HelveticaNeue-Light.otf);
-  }
-
-  @font-face {
-    font-family: HelveticaN;
-    src: url(/fonts/HelveticaNeue-Heavy.otf);
-    font-weight: bold;
-  }
-    body {
-      margin: 0;
-      font-family: "HelveticaN";
-      background: linear-gradient(to bottom, #e5e5e5 0%, #cfcfcf 100%);
-      background-image: url("linen.png");
-      background-size: cover;
-    }
-    
-    .search-bar {
-      background: #fefefe;
-      background-image: linear-gradient(to bottom, #DADADC 0%, #CFCFD0 33%, #C7C7C9 67%, #C2C2C3 100%);
-      border-radius: 4px;
-      box-shadow: 1px 1px 24px 2px black;
-      border: 1px solid #ccc;
-      height: 32px;
-      max-width: 760px;
-      margin: 120px auto auto;
-      z-index: 2;
-      position: relative;
-    }
-
-    .searchpre{
-      height: 16px;
-      margin-top: auto;
-    }
-
-    .searchwrap{
-      box-shadow: 1px 3px 3px 1px rgb(117, 117, 117) inset;
-      background-color: #fefefe;
-      max-width: 200px;
-      position: relative;
-      border-radius: 12px;
-      z-index: 3;
-      padding: 3px;
-      margin-left: 10px;
-      padding-left: 8px;
-      color: #747576;
-      margin-top: 4px;
-      border:0 none;
-      display: flex;
-    }
-
-    .search-box {
-      border: none;
-      outline: none;
-      background: #ffffff00;
-      font-family: "HelveticaN";
-      font-weight: 100;
-      margin-top: 1px;
-      margin-left: 2px;
-    }
-
-    .title-bar {
-      position: relative;
-      text-align: center;
-      transform: translateY(60px);
-      font-size: 56px;
-      font-weight: bold;
-      color: #ffffff;
-      text-shadow: 0px 5px 3px black;
-      font-family: "HelveticaN"
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 20px auto 40px;
-      padding-top: 10px;
-	    padding-left: 30px;
-	    padding-right: 30px;
-      padding-bottom: 15px;
-      background: #E9EAEC;
-      border-radius: 4px;
-      box-shadow: 1px 10px 100px 16px rgba(0, 0, 0, 0.555);
-      border: 1px solid #ccc;
-      z-index: 1;
-      position: relative;
-    }
-
-    .section {
-      text-align: left;
-      padding-bottom: 80px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.103);
-      font-family: "HelveticaN";
-      font-weight: bold;
-      box-shadow: 0px 1px #ffffff;
-    }
-
-    .section h2 {
-      font-size: 16px;
-      color: #474747;
-      text-shadow: 0 1px 0 #fff;
-	    text-align: left;
-	    transform: translateX(15px);
-    }
-
-     .section p {
-      font-size: 12px;
-      color: #898989;
-	    text-align: left;
-	    transform: translateX(15px);
-      font-family: "HelveticaN";
-      text-shadow: 0 1px 0 #fff;
-      font-weight: 100;
-    }
-	
-	  .section img {
-	    float: left;
-	    max-width: 128px;
-	    max-height: 128px;
-	    box-shadow: 0 1px 12px rgb(63, 63, 63);
-      padding: 2px;
-	  }
-
-    .hide {
-      display: none;
-    }
-    
-    #down{
-      float: right;
-      max-width: 32px;
-      max-height: 32px;
-      transform: translateX(-10px) translateY(-10px);
-      padding: 1px;
-      border: 1px solid #888888;
-      box-shadow: 0px 1px 8px -2px black;
-      opacity: 60%
-    }
-
-    #down:hover{
-      float: right;
-      max-width: 32px;
-      max-height: 32px;
-      transform: translateX(-10px) translateY(-10px);
-      padding: 1px;
-      border: 1px solid #a0a0a0;
-      box-shadow: 0px 1px 8px -2px rgb(56, 56, 56);
-      opacity: 45%;
-      cursor: not-allowed;
-    }
-
-    .sortbutton{
-      background: linear-gradient(to bottom, #e4e5e7,#cbccce);
-      border-style: solid;
-      border-width: 1px;
-      font-weight: bold;
-      font-family: helveticaN;
-      color: #333333;
-      text-shadow: 0px 1px 0px #ffffff;
-      padding: 5px;
-      border-radius: 4px;
-      border-color: #A3A3A5;
-      box-shadow: 0px 1px 0px 0px inset #ffffff;
-      float: right;
-      transform: translateY(-27px);
-      margin-right: 10px;
-    }
-
-    .sortbutton:active{
-      box-shadow: 1px 1px 4px 0px #474747 inset;
-      background: linear-gradient(to bottom, #cccccc, #cecece);
-    }
-
-  @media screen and (max-width: 600px) {
-    div.title-bar {
-      font-size: 30px;
-    }
-  }
-
-    @media screen and (max-width: 600px) {
-    div.searchwrap {
-      max-width: 70px;
-    }
-  }
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Gamma Lab Smash Survey</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Barlow:wght@500;700&display=swap">
+<style>
+:root{--g2:#4cc61d;--g3:#9dff3a;--p:#6b2fa0;--p2:#b98cf2;--ink:#0c1a0c;--paper:#f1ffe0;--rock:#2a2f2a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:"Barlow",Arial,sans-serif;font-weight:500;color:var(--paper);min-height:100vh;
+background:radial-gradient(ellipse at 20% 0%,#3fa31a55,transparent 55%),radial-gradient(ellipse at 100% 100%,#6b2fa088,transparent 50%),linear-gradient(160deg,#103d10,#0a1f0a 60%,#14081f)}
+.cracks{position:fixed;inset:0;width:100%;height:100%;opacity:.35;pointer-events:none}
+main{position:relative;max-width:680px;margin:0 auto;padding:20px 16px 48px}
+header{text-align:center;padding:4px 0 18px}
+.fist{width:72px;height:72px;filter:drop-shadow(3px 3px 0 var(--ink))}
+h1{font-family:"Bangers","Impact",sans-serif;font-weight:400;font-size:clamp(2.6rem,11vw,4.6rem);line-height:.95;margin:4px 0 0;color:var(--g3);letter-spacing:.04em;-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--p),8px 8px 0 var(--ink);transform:rotate(-2deg)}
+.prog{background:#151a15;border:3px solid var(--ink);border-radius:4px;height:18px;overflow:hidden}
+#bar{height:100%;width:0;background:repeating-linear-gradient(45deg,var(--g2) 0 12px,var(--g3) 12px 24px);transition:width .3s}
+#pg{margin:6px 0 14px;font-weight:700;color:#cfe9bd;text-align:right}
+#card{background:var(--rock);border:4px solid var(--ink);border-radius:6px;padding:20px 20px 24px;box-shadow:8px 8px 0 var(--p)}
+.badge{display:inline-block;background:var(--p);color:var(--paper);font-weight:700;border:2px solid var(--ink);border-radius:4px;padding:2px 10px;margin-bottom:10px}
+.q{font-family:"Bangers","Impact",sans-serif;font-weight:400;font-size:clamp(1.5rem,6vw,2rem);letter-spacing:.04em;color:var(--g3);margin:0 0 16px;line-height:1.15}
+input,textarea{width:100%;font:inherit;font-size:1.1rem;color:var(--paper);background:#151a15;border:3px solid #4b554b;border-radius:4px;padding:12px}
+textarea{min-height:120px;resize:vertical}
+.opts{display:grid;gap:10px}
+button.opt{font:inherit;font-size:1.05rem;text-align:left;color:var(--paper);background:#151a15;border:3px solid #4b554b;border-radius:4px;padding:12px;cursor:pointer;width:100%}
+button.opt.sel{border-color:var(--g2);background:#16300f}
+button.opt.right{border-color:var(--g3);background:#1d4a12}
+button.opt.wrong{border-color:#e0559c;background:#3a1530}
+.note{margin-top:14px;min-height:1.4em;font-weight:700;color:#d6ffb0;line-height:1.4}
+.err{color:#ff9bd0;font-weight:700;margin-top:8px;min-height:1.2em}
+.nav{display:flex;gap:12px;margin-top:20px}
+.go{flex:1;font-family:"Bangers","Impact",sans-serif;font-size:1.7rem;letter-spacing:.08em;color:var(--ink);background:var(--g2);border:4px solid var(--ink);border-radius:6px;padding:8px;cursor:pointer;box-shadow:5px 5px 0 var(--p);transition:transform .08s,box-shadow .08s}
+.go.back{flex:0 0 34%;background:var(--p2)}
+.go:active:not(:disabled){transform:translate(4px,4px);box-shadow:1px 1px 0 var(--p)}
+.go:disabled{opacity:.4;cursor:not-allowed}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--g3);outline-offset:2px}
+.big{font-family:"Bangers","Impact",sans-serif;font-size:clamp(3rem,13vw,5rem);color:var(--g3);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--p);margin:0;line-height:1}
+#end{text-align:center}
+@media (prefers-reduced-motion:reduce){#bar,.go{transition:none}}
+</style>
 </head>
 <body>
-  <div class="title-bar">Kydron.com</div>
-
-  <div class="search-bar">
-    <div class="searchwrap">
-        <img src="magnifiying-glass.png" class="searchpre">   
-        <input type="search" id="search" class="search-box" placeholder="Search">
-    </div>
-      <button class="sortbutton" onclick="sortByName()">Sort Alphabetically</button>
-      <button class="sortbutton" onclick="sortByYear()">Sort by Date</button>
-  </div>
-  <div class="container" id="content"></div>
+<svg class="cracks" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g fill="none" stroke="#9dff3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M0 120 L60 150 L50 200 L110 230 L100 290"/><path d="M60 150 L130 120 L170 150"/>
+<path d="M400 480 L330 510 L345 570 L280 600 L295 680"/><path d="M345 570 L400 600"/>
+<path d="M0 640 L50 660 L40 720 L95 745"/><path d="M400 80 L350 110 L360 160 L310 185"/></g>
+</svg>
+<main>
+<header>
+<svg class="fist" viewBox="0 0 100 100" role="img" aria-label="Green fist">
+<rect x="22" y="48" width="56" height="42" rx="8" fill="#4cc61d" stroke="#0c1a0c" stroke-width="4"/>
+<rect x="20" y="22" width="14" height="32" rx="7" fill="#4cc61d" stroke="#0c1a0c" stroke-width="4"/>
+<rect x="35" y="16" width="14" height="38" rx="7" fill="#4cc61d" stroke="#0c1a0c" stroke-width="4"/>
+<rect x="50" y="16" width="14" height="38" rx="7" fill="#4cc61d" stroke="#0c1a0c" stroke-width="4"/>
+<rect x="65" y="22" width="14" height="32" rx="7" fill="#4cc61d" stroke="#0c1a0c" stroke-width="4"/>
+<path d="M22 78H78V90H22Z" fill="#6b2fa0" stroke="#0c1a0c" stroke-width="4"/></svg>
+<h1>Gamma Lab Smash Survey</h1>
+</header>
+<div class="prog" role="progressbar" aria-label="Survey progress"><div id="bar"></div></div>
+<div id="pg"></div>
+<section id="card" aria-live="polite"><div id="stage"></div>
+<div class="nav" id="nav"><button type="button" class="go back" id="back">BACK</button><button type="button" class="go" id="next">NEXT</button></div></section>
+</main>
+<script>
+(function(){
+var P=[
+["x","What’s your name?","text",1],
+["x","What’s your email address?","email",1],
+["s","How angry are you right now?",["Calm as Banner","Mildly annoyed","Seeing green","Full smash"]],
+["t","In which month and year is The Incredible Hulk #1 dated?",["March 1961","May 1962","September 1963","January 1964"],1,"Created by Stan Lee and Jack Kirby. The series was cancelled after just six issues."],
+["t","What colour was the Hulk’s skin in issue #1?",["Green","Red","Grey","Blue"],2,"Printing problems with the grey tone led to the switch to green from issue #2."],
+["t","In the earliest stories, what triggered Banner’s change into the Hulk?",["Sunset","A full moon","Loud noises","Cold water"],0,"In issue #1 he changed at nightfall. Anger became the trigger later."],
+["t","Who was the teenager Banner saved at the gamma bomb test?",["Glenn Talbot","Rick Jones","Leonard Samson","Clint Barton"],1,"Rick Jones drove onto the test site. Banner shoved him into a trench and took the blast."],
+["s","Which era of Hulk comics is your favourite?",["The 1960s Kirby original","Peter David’s long run","Planet Hulk","I’m here for the movies"]],
+["t","What is General Ross’s nickname?",["Thunderbolt","Hammer","Ironside","Stormfront"],0,"General Thaddeus “Thunderbolt” Ross is Betty’s father and the Hulk’s longtime hunter."],
+["t","Where does the grey Hulk, Joe Fixit, work as an enforcer?",["Atlantic City","Las Vegas","Chicago","Reno"],1,"Peter David introduced Joe Fixit in Incredible Hulk #347 (1988)."],
+["t","Which planet does the Hulk get exiled to in Planet Hulk?",["Sakaar","Battleworld","Counter-Earth","Hala"],0,"Sakaar is a gladiator world where the Hulk is forced to fight."],
+["t","Who becomes the Hulk’s wife and queen on Sakaar?",["Elloe Kaifi","Caiera","Natasha","Betty"],1,"Caiera the Oldstrong, a warrior of the Shadow People."],
+["s","Which Hulk would you want on your side?",["Savage Hulk","Joe Fixit","Professor Hulk","Red Hulk"]],
+["t","Who is the Red Hulk in his civilian identity?",["Emil Blonsky","Thaddeus Ross","Samuel Sterns","Glenn Talbot"],1,"Red Hulk debuted in 2008 in Hulk by Jeph Loeb and Ed McGuinness."],
+["t","What was Abomination’s job before his gamma exposure, in the comics?",["KGB agent","Janitor","Nuclear physicist","Circus strongman"],0,"Emil Blonsky was a Soviet spy. In the 2008 film he is a Royal Marine instead."],
+["t","Which villain’s real name is Samuel Sterns?",["The Rhino","The Leader","MODOK","Zzzax"],1,"A gamma-irradiated genius who first appeared in 1964, with an enormous brain."],
+["t","What is Doc Samson’s profession?",["Pilot","Lawyer","Psychiatrist","Journalist"],2,"Dr Leonard Samson is a psychiatrist who also gets gamma powers."],
+["s","What do you do when stress builds?",["Take a deep breath","Go for a run","Smash a pillow","Turn green and leap away"]],
+["t","Which writer’s Hulk run lasted over a decade, from issue #331 to #467?",["Stan Lee","Peter David","Bill Mantlo","Jeph Loeb"],1,"Peter David’s run also gave us Joe Fixit and Future Imperfect."],
+["t","Who wrote Planet Hulk and World War Hulk?",["Jason Aaron","Mark Waid","Greg Pak","Frank Miller"],2,"Greg Pak wrote both, one after the other, in 2006–2007."],
+["t","Why does the Hulk return to Earth in World War Hulk?",["To rescue Rick Jones","To join the Avengers","To cure Banner","Revenge on the Illuminati"],3,"The Illuminati launched him into space, and his ship’s explosion killed people on Sakaar."],
+["t","In Hulk: Future Imperfect (1992), what is the tyrannical future Hulk called?",["The Maestro","The Devastator","Gamma Prime","The Overlord"],0,"Written by Peter David, with art by George Pérez."],
+["t","Who played Bruce Banner in Ang Lee’s 2003 film Hulk?",["Edward Norton","Mark Ruffalo","Eric Bana","Bill Bixby"],2,"Edward Norton came later, in 2008."],
+["t","Who directed 2008’s The Incredible Hulk, starring Edward Norton?",["Ang Lee","Louis Leterrier","Joss Whedon","Kenneth Branagh"],1,"Lou Ferrigno also voiced the Hulk in that film."],
+["t","In the 1977–82 TV series, Banner’s first name was changed to what?",["Robert","Michael","David","Peter"],2,"Bill Bixby played David Banner, with Lou Ferrigno as the Hulk."],
+["t","Who was first cast as the Hulk in that TV series before Lou Ferrigno?",["Dolph Lundgren","Richard Kiel","Arnold Schwarzenegger","Andre the Giant"],1,"Richard Kiel, known as Jaws in the Bond films, was cast first and then replaced."],
+["t","How did Jennifer Walters become She-Hulk?",["A gamma bomb","A lab accident","A blood transfusion from Bruce","A gamma storm"],2,"She was badly wounded and received her cousin Bruce’s blood."],
+["t","Which team did the Hulk help found in 1963, then quit within two issues?",["Defenders","Avengers","X-Men","Fantastic Four"],1,"He left in Avengers #2. The Defenders came later, in 1971."],
+["s","What’s your favourite colour when stressed?",["Green","Purple","Both, ideally"]],
+["x","Anything else for the lab? (optional)","area",0]
+];
+var SB_URL="YOUR_SUPABASE_URL",SB_KEY="YOUR_SUPABASE_ANON_KEY";
+var A=[],i=0,done=false;
+var $=function(id){return document.getElementById(id)};
+var stage=$("stage"),next=$("next"),back=$("back"),bar=$("bar"),pg=$("pg"),nav=$("nav");
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function valid(){var p=P[i],a=A[i];
+if(p[0]=="x"){if(!p[3])return true;if(!a)return false;return p[2]=="email"?/^\S+@\S+\.\S+$/.test(a):true}
+return a!=null}
+function show(){
+var p=P[i];stage.innerHTML="";
+pg.textContent="Page "+(i+1)+" of "+P.length;
+bar.style.width=((i+1)/P.length*100)+"%";
+back.style.visibility=i?"visible":"hidden";
+next.textContent=i==P.length-1?"SMASH SUBMIT":"NEXT";
+if(p[0]=="t")stage.appendChild(el("span","badge","Gamma trivia"));
+stage.appendChild(el("h2","q",p[1]));
+var note=el("div","note");
+if(p[0]=="x"){
+var f=p[2]=="area"?el("textarea"):el("input");
+if(p[2]!="area")f.type=p[2];
+f.setAttribute("aria-label",p[1]);f.value=A[i]||"";
+f.oninput=function(){A[i]=f.value.trim();err.textContent="";next.disabled=!valid()};
+var err=el("div","err");stage.appendChild(f);stage.appendChild(err);
+if(p[2]=="email"){f.onblur=function(){if(f.value&&!valid())err.textContent="Enter a valid email address."}}
+}else{
+var box=el("div","opts"),bs=[];
+p[2].forEach(function(o,k){var b=el("button","opt",o);b.type="button";b.onclick=function(){pick(k)};bs.push(b);box.appendChild(b)});
+stage.appendChild(box);
+function pick(k){
+if(p[0]=="t"&&A[i]!=null)return;
+A[i]=k;
+bs.forEach(function(b,j){b.className="opt";
+if(p[0]=="t"){if(j==p[3])b.className+=" right";else if(j==k)b.className+=" wrong"}
+else if(j==k)b.className+=" sel"});
+if(p[0]=="t")note.textContent=(k==p[3]?"Correct. ":"Not quite. ")+p[4];
+next.disabled=false}
+if(A[i]!=null){var s=A[i];A[i]=null;pick(s)}
+}
+stage.appendChild(note);
+next.disabled=!valid();
+}
+next.onclick=function(){if(i<P.length-1){i++;show()}else finish()};
+back.onclick=function(){if(i>0){i--;show()}};
+function send(s,n,st){
+var ans={};P.forEach(function(p,k){var v=A[k];if(k<2||v==null||v==="")return;ans[p[1]]=p[0]=="x"?v:p[2][v]});
+fetch(SB_URL+"/rest/v1/responses",{method:"POST",headers:{"Content-Type":"application/json",apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,Prefer:"return=minimal"},body:JSON.stringify({name:A[0],email:A[1],score:s,total:n,answers:ans})})
+.then(function(r){st.textContent=r.ok?"Your answers were sent to the lab.":"Your answers could not be sent (error "+r.status+")."})
+.catch(function(){st.textContent="Your answers could not be sent. Check your connection."})}
+function finish(){
+var s=0,n=0;P.forEach(function(p,k){if(p[0]=="t"){n++;if(A[k]==p[3])s++}});
+var r=s>=20?"Smartest one there is":s>=15?"Hulkbuster":s>=8?"Bruce Banner":"Puny human";
+stage.innerHTML="";nav.style.display="none";bar.style.width="100%";pg.textContent="All 30 pages done";
+var d=el("div");d.id="end";
+d.appendChild(el("p","big","SMASHED!"));
+d.appendChild(el("h2","q","You scored "+s+" of "+n+": "+r));
+var st=el("p","note","Sending your answers…");d.appendChild(el("p","note","Thanks, "+(A[0]||"friend")+"."));d.appendChild(st);send(s,n,st);
+stage.appendChild(d);
+}
+show();
+})();
+</script>
 </body>
 </html>
